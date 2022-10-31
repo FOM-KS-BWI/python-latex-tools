@@ -1,3 +1,10 @@
+import csv
+
+f = open('ExcelTest1.CSV', encoding='ISO-8859-1')
+csv_reader = csv.reader(f)
+for line in csv_reader:
+    print(line)
+f.close()
 def make_latex_table(tabelle):
     '''
 
@@ -30,3 +37,4 @@ if __name__ == '__main__':
     ]
     latex_tabelle = make_latex_table(tabelle)
     print(latex_tabelle)
+
