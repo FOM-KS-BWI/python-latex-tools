@@ -26,14 +26,8 @@ CONTENT
 if __name__ == '__main__':
     print('LaTeX-Tools')
     file = open("ExcelTest1.CSV", "r")
-    data = list(csv.reader(file, delimiter=";"))
+    tabelle = list(csv.reader(file, delimiter=";"))
     file.close()
-    print(data)
 
-    tabelle = [
-        ['A', 'B', 'C', 'D'],
-        ['Titel 1', 'wert 1', 'wert 2', 'wert 3'],
-        ['Titel 2', 'wert 4', 'wert 5', 'wert 6'],
-    ]
     latex_tabelle = make_latex_table(tabelle)
     print(latex_tabelle)
