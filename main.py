@@ -1,3 +1,5 @@
+import csv
+
 def make_latex_table(tabelle):
     '''
 
@@ -22,11 +24,18 @@ CONTENT
 
 
 if __name__ == '__main__':
+    table = []
+    with open("ExcelTest1.CSV", 'r') as file:
+            csvreader = csv.reader(file, delimiter=';')
+            for row in csvreader:
+                #print(row)
+                table.append(row)
     print('LaTeX-Tools')
-    tabelle = [
-        ['A', 'B', 'C', 'D'],
-        ['Titel 1', 'wert 1', 'wert 2', 'wert 3'],
-        ['Titel 2', 'wert 4', 'wert 5', 'wert 6'],
-    ]
+    print(table)
+    tabelle = table#[
+        #['A', 'B', 'C', 'D'],
+        #['Titel 1', 'wert 1', 'wert 2', 'wert 3'],
+        #['Titel 2', 'wert 4', 'wert 5', 'wert 6'],
+    #]
     latex_tabelle = make_latex_table(tabelle)
     print(latex_tabelle)
