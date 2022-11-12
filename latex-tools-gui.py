@@ -29,17 +29,17 @@ class LatexToolsGui:
         self.root.config(menu=menubar)
         frame = ttk.Frame(self.root, padding=10)
         frame.grid()
-        prop_frame = ttk.Frame(frame,
-                               width=300, height=400,
-                               borderwidth=2, relief=tk.GROOVE,
-                               padding=5)
+        prop_frame = ttk.Labelframe(frame, text='Eigenschaften',
+                                    width=300, height=400,
+                                    borderwidth=2, relief=tk.GROOVE,
+                                    padding=5)
         prop_frame.grid(column=0, row=0, sticky=tk.NSEW)
         ttk.Label(prop_frame, text='Eigenschaften').grid(column=0, row=0)
 
-        settings_frame = ttk.Frame(frame,
-                                   width=300, height=400,
-                                   borderwidth=2, relief=tk.GROOVE,
-                                   padding=5)
+        settings_frame = ttk.Labelframe(frame, text='Einstellungen',
+                                        width=300, height=400,
+                                        borderwidth=2, relief=tk.GROOVE,
+                                        padding=5)
         settings_frame.grid(column=1, row=0, sticky=tk.NSEW)
         ttk.Label(settings_frame, text='Einstellungen').grid(column=0, row=0)
 
