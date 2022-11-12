@@ -17,7 +17,7 @@ class LatexToolsGui:
 
     def init_gui(self):
         menubar = tk.Menu(self.root)
-        file_menu = tk.Menu(menubar)
+        file_menu = tk.Menu(menubar, tearoff=False)
         file_menu.add_command(label='Open')
         file_menu.add_separator()
         file_menu.add_command(label='Exit', command=self.root.destroy)
