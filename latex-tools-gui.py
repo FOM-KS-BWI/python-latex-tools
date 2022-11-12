@@ -4,12 +4,14 @@ import tkinter.filedialog as fd
 
 
 class LatexToolsGui:
+    filename_label: tk.Label | None
     root: tk.Tk
 
     def __init__(self, root_tk):
         """
         Constructor. Initializes the GUI class.
         """
+        self.filename_label = None
         self.filename = None
         self.root = root_tk  # Object variable
         self.init_gui()
@@ -34,7 +36,9 @@ class LatexToolsGui:
                                     borderwidth=2, relief=tk.GROOVE,
                                     padding=5)
         prop_frame.grid(column=0, row=0, sticky=tk.NSEW)
-        ttk.Label(prop_frame, text='Eigenschaften').grid(column=0, row=0)
+        ttk.Label(prop_frame, text='Datei:').grid(column=0, row=0)
+        self.filename_label = ttk.Label(prop_frame, text='... noch keine Datei geöffnet ...')
+        self.filename_label.grid(column=1, row=0)
 
         settings_frame = ttk.Labelframe(frame, text='Einstellungen',
                                         width=300, height=400,
@@ -45,6 +49,7 @@ class LatexToolsGui:
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
+        self.filename_label.config(text=self.filename)
 
 
 if __name__ == '__main__':
