@@ -1,3 +1,4 @@
+import csv
 import tkinter as tk
 import tkinter.ttk as ttk
 import tkinter.filedialog as fd
@@ -11,6 +12,7 @@ class LatexToolsGui:
         """
         Constructor. Initializes the GUI class.
         """
+        self.list_of_lists = []
         self.filename_label = None
         self.filename = None
         self.root = root_tk  # Object variable
@@ -50,6 +52,11 @@ class LatexToolsGui:
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
         self.filename_label.config(text=self.filename if len(self.filename) < 20 else f"...{self.filename[-20:]:.20s}")
+        self.list_of_lists = []  #
+        with open(self.filename) as f:
+            csv_reader = csv.reader(f, delimiter=';')
+            for row in csv_reader:
+                self.list_of_lists.append(row)
 
 
 if __name__ == '__main__':
