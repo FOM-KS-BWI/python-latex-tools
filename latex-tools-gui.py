@@ -2,6 +2,7 @@ import csv
 import tkinter as tk
 import tkinter.ttk as ttk
 import tkinter.filedialog as fd
+import latextools
 
 
 class LatexToolsGui:
@@ -48,6 +49,9 @@ class LatexToolsGui:
                                         padding=5)
         settings_frame.grid(column=1, row=0, sticky=tk.NSEW)
         ttk.Label(settings_frame, text='Einstellungen').grid(column=0, row=0)
+        ttk.Button(settings_frame,
+                   text='LaTeX generieren',
+                   command=self.generate_latex).grid(column=0, row=100)
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
@@ -57,6 +61,9 @@ class LatexToolsGui:
             csv_reader = csv.reader(f, delimiter=';')
             for row in csv_reader:
                 self.list_of_lists.append(row)
+
+    def generate_latex(self):
+        print(latextools.make_latex_table(self.list_of_lists))
 
 
 if __name__ == '__main__':
