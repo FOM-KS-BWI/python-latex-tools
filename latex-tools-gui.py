@@ -16,6 +16,8 @@ class LatexToolsGui:
         return self.root
 
     def init_gui(self):
+        self.root.title = 'LaTeX-Tools'
+        self.root.geometry('600x400')
         menubar = tk.Menu(self.root)
         file_menu = tk.Menu(menubar, tearoff=False)
         file_menu.add_command(label='Open')
