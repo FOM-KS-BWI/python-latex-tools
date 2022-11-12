@@ -6,9 +6,9 @@ class LatexToolsGui:
     root: tk.Tk
 
     def __init__(self, root_tk):
-        '''
+        """
         Constructor. Initializes the GUI class.
-        '''
+        """
         self.root = root_tk  # Object variable
         self.init_gui()
 
