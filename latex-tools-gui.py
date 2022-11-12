@@ -1,5 +1,6 @@
 import tkinter as tk
 import tkinter.ttk as ttk
+import tkinter.filedialog as fd
 
 
 class LatexToolsGui:
@@ -9,6 +10,7 @@ class LatexToolsGui:
         """
         Constructor. Initializes the GUI class.
         """
+        self.filename = None
         self.root = root_tk  # Object variable
         self.init_gui()
 
@@ -20,7 +22,7 @@ class LatexToolsGui:
         self.root.geometry('600x400')
         menubar = tk.Menu(self.root)
         file_menu = tk.Menu(menubar, tearoff=False)
-        file_menu.add_command(label='Open')
+        file_menu.add_command(label='Open', command=self.open_file)
         file_menu.add_separator()
         file_menu.add_command(label='Exit', command=self.root.destroy)
         menubar.add_cascade(label='File', menu=file_menu)
@@ -40,6 +42,9 @@ class LatexToolsGui:
                                    padding=5)
         settings_frame.grid(column=1, row=0, sticky=tk.NSEW)
         ttk.Label(settings_frame, text='Einstellungen').grid(column=0, row=0)
+
+    def open_file(self):
+        self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
 
 
 if __name__ == '__main__':
