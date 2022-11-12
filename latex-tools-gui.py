@@ -49,7 +49,7 @@ class LatexToolsGui:
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
-        self.filename_label.config(text=self.filename)
+        self.filename_label.config(text=self.filename if len(self.filename) < 20 else f"...{self.filename[-20:]:.20s}")
 
 
 if __name__ == '__main__':
