@@ -16,6 +16,13 @@ class LatexToolsGui:
         return self.root
 
     def init_gui(self):
+        menubar = tk.Menu(self.root)
+        file_menu = tk.Menu(menubar)
+        file_menu.add_command(label='Open')
+        file_menu.add_separator()
+        file_menu.add_command(label='Exit', command=self.root.destroy)
+        menubar.add_cascade(label='File', menu=file_menu)
+        self.root.config(menu=menubar)
         frame = ttk.Frame(self.root, padding=10)
         frame.grid()
         ttk.Label(frame,
