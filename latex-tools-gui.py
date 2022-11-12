@@ -27,11 +27,19 @@ class LatexToolsGui:
         self.root.config(menu=menubar)
         frame = ttk.Frame(self.root, padding=10)
         frame.grid()
-        ttk.Label(frame,
-                  text='Hello World!').grid(row=0, column=0)
-        ttk.Button(frame,
-                   text='Quit',
-                   command=self.root.destroy).grid(row=1, column=0)
+        prop_frame = ttk.Frame(frame,
+                               width=300, height=400,
+                               borderwidth=2, relief=tk.GROOVE,
+                               padding=5)
+        prop_frame.grid(column=0, row=0, sticky=tk.NSEW)
+        ttk.Label(prop_frame, text='Eigenschaften').grid(column=0, row=0)
+
+        settings_frame = ttk.Frame(frame,
+                                   width=300, height=400,
+                                   borderwidth=2, relief=tk.GROOVE,
+                                   padding=5)
+        settings_frame.grid(column=1, row=0, sticky=tk.NSEW)
+        ttk.Label(settings_frame, text='Einstellungen').grid(column=0, row=0)
 
 
 if __name__ == '__main__':
