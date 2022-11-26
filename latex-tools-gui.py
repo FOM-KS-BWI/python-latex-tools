@@ -61,6 +61,21 @@ class LatexToolsGui:
             csv_reader = csv.reader(f, delimiter=';')
             for row in csv_reader:
                 self.list_of_lists.append(row)
+        # Get maximum and minimum width of table
+        max_len = 0
+        min_len = len(self.list_of_lists[0])
+        for row in self.list_of_lists:
+            cur_len = len(row)
+            if max_len < cur_len:
+                max_len = cur_len
+            if min_len > cur_len:
+                min_len = cur_len
+
+        # If maximum and minimum length are different, the amount of columns
+        # must be adapted to the maximum.
+        if max_len != min_len:
+            for row in self.list_of_lists:
+                row.extend(['']*(max_len-len(row)))
 
     def generate_latex(self):
         print(latextools.make_latex_table(self.list_of_lists))
