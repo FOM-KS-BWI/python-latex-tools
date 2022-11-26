@@ -52,6 +52,8 @@ class LatexToolsGui:
         ttk.Button(settings_frame,
                    text='LaTeX generieren',
                    command=self.generate_latex).grid(column=0, row=100)
+        ttk.Checkbutton(settings_frame,
+                        text='erste Zeile ändern').grid(column=0, row=200)
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
