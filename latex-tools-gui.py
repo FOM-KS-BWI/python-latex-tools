@@ -13,6 +13,8 @@ class LatexToolsGui:
         """
         Constructor. Initializes the GUI class.
         """
+        self.checkbox_first_line_different = None
+        self.first_line_different_variable = None
         self.checkbox_booktab = None
         self.booktab_variable = None
         self.list_of_lists = []
@@ -54,8 +56,12 @@ class LatexToolsGui:
         ttk.Button(settings_frame,
                    text='LaTeX generieren',
                    command=self.generate_latex).grid(column=0, row=100)
-        ttk.Checkbutton(settings_frame,
-                        text='erste Zeile ändern').grid(column=0, row=1)
+        self.first_line_different_variable = tk.BooleanVar()
+        self.first_line_different_variable.set(False)
+        self.checkbox_first_line_different = ttk.Checkbutton(settings_frame,
+                        text='erste Zeile ändern',
+                        variable=self.first_line_different_variable)
+        self.checkbox_first_line_different.grid(column=0, row=1)
         self.booktab_variable = tk.BooleanVar()
         self.booktab_variable.set(False)
         self.checkbox_booktab = ttk.Checkbutton(settings_frame,
