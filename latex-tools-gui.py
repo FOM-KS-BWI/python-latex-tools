@@ -103,6 +103,7 @@ class LatexToolsGui:
             self.list_of_lists,
             booktab=self.booktab_variable.get(),
             first_row_changed=self.first_line_different_variable.get(),
+            place_in_float=self.float_variable.get(),
         ))
 
 
