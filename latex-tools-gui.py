@@ -94,7 +94,11 @@ class LatexToolsGui:
                 row.extend(['']*(max_len-len(row)))
 
     def generate_latex(self):
-        print(latextools.make_latex_table(self.list_of_lists, booktab=self.booktab_variable.get()))
+        print(latextools.make_latex_table(
+            self.list_of_lists,
+            booktab=self.booktab_variable.get(),
+            first_row_changed=self.first_line_different_variable.get(),
+        ))
 
 
 if __name__ == '__main__':
