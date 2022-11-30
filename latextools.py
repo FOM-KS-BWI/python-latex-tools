@@ -1,17 +1,22 @@
-def make_latex_table(tabelle):
+def make_latex_table(tabelle, booktab=False):
     '''
 
-    :param tabelle:
+    :param booktab: If true, the table will get booktab-style lines.
+    :param tabelle: A list of lists representing the table content.
     :return:
     '''
 
     table_width = 0
     row_content = ''
+    if booktab:
+        row_content += '\\toprule\n'
     for row in tabelle:
         cur_len = len(row)
         if cur_len > table_width:
             table_width = cur_len
         row_content += ' & '.join(row)+'\\\\\n'
+    if booktab:
+        row_content += r'\bottomrule'
     latex_code = r'''
 \begin{tabular}{COLUMNS}
 CONTENT
