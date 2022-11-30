@@ -55,13 +55,13 @@ class LatexToolsGui:
                    text='LaTeX generieren',
                    command=self.generate_latex).grid(column=0, row=100)
         ttk.Checkbutton(settings_frame,
-                        text='erste Zeile ändern').grid(column=0, row=200)
+                        text='erste Zeile ändern').grid(column=0, row=1)
         self.booktab_variable = tk.BooleanVar()
         self.booktab_variable.set(False)
         self.checkbox_booktab = ttk.Checkbutton(settings_frame,
                                                 text="Booktab Style",
                                                 variable=self.booktab_variable)
-        self.checkbox_booktab.grid(column=0, row=1)
+        self.checkbox_booktab.grid(column=0, row=10)
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
