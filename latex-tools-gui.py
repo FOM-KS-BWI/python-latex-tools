@@ -13,6 +13,8 @@ class LatexToolsGui:
         """
         Constructor. Initializes the GUI class.
         """
+        self.checkbox_booktab = None
+        self.booktab_variable = None
         self.list_of_lists = []
         self.filename_label = None
         self.filename = None
@@ -52,9 +54,12 @@ class LatexToolsGui:
         ttk.Button(settings_frame,
                    text='LaTeX generieren',
                    command=self.generate_latex).grid(column=0, row=100)
-        checkbox_booktab = ttk.Checkbutton(settings_frame,
-                        text="Booktab Style")
-        checkbox_booktab.grid(column=0, row=1)
+        self.booktab_variable = tk.BooleanVar()
+        self.booktab_variable.set(False)
+        self.checkbox_booktab = ttk.Checkbutton(settings_frame,
+                                                text="Booktab Style",
+                                                variable=self.booktab_variable)
+        self.checkbox_booktab.grid(column=0, row=1)
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
