@@ -68,6 +68,11 @@ class LatexToolsGui:
                                                 text="Booktab Style",
                                                 variable=self.booktab_variable)
         self.checkbox_booktab.grid(column=0, row=10)
+        self.float_variable = tk.BooleanVar()
+        self.float_variable.set(False)
+        ttk.Checkbutton(settings_frame,
+                        text='In float platzieren',
+                        variable=self.float_variable).grid(column=0, row=20)
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
