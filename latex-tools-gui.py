@@ -52,6 +52,9 @@ class LatexToolsGui:
         ttk.Button(settings_frame,
                    text='LaTeX generieren',
                    command=self.generate_latex).grid(column=0, row=100)
+        checkbox_booktab = ttk.Checkbutton(settings_frame,
+                        text="Booktab Style")
+        checkbox_booktab.grid(column=0, row=1)
 
     def open_file(self):
         self.filename = tk.filedialog.askopenfilename(filetypes=[('CSV-Files', '.csv .txt')])
